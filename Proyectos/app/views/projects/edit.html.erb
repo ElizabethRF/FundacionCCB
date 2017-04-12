@@ -1,7 +1,7 @@
-<h1>Agregar proyecto</h1>
+<h1>Editar proyecto</h1>
 
-<%= form_for :project, url: projects_path do |f| %>
-<% if @project.errors.any? %>
+<%= form_for :project, url: project_path(@project), method: :patch do |f| %>
+    <% if @project.errors.any? %>
     <div id="error_explanation">
         <h2>
         <%= pluralize(@project.errors.count,"errores")%><br>
@@ -14,7 +14,6 @@
         </ul>
     </div>
 <% end %>
-
 <p>
         <%= f.label :titulo %> 
         <%= f.text_field :titulo %>
