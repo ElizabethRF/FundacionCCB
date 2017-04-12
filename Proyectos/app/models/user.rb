@@ -1,4 +1,5 @@
 class User <ActiveRecord::Base
+<<<<<<< HEAD
     has_many :projects
     before_save {self.email =email.downcase}
     validates :nombre, presence: true,
@@ -23,3 +24,6 @@ class User <ActiveRecord::Base
                 length {minimum:5, maximum: 25}
     
 end 
+=======
+end 
+>>>>>>> parent of b7fd487... Validación de usuario y correo

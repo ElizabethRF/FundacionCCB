@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170412192426) do
+=======
+ActiveRecord::Schema.define(version: 20170412142527) do
+>>>>>>> parent of b7fd487... Validación de usuario y correo
 
   create_table "projects", force: :cascade do |t|
     t.string   "area"
@@ -32,9 +36,6 @@ ActiveRecord::Schema.define(version: 20170412192426) do
     t.string "correo"
     t.string "numero_telefono"
     t.string "rol"
-    t.text   "apellido_paterno"
-    t.text   "apellido_materno"
-    t.text   "nombre_de_usuario"
   end
 
 end
