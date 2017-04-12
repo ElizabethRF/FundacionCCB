@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170412192426) do
-=======
-ActiveRecord::Schema.define(version: 20170412142527) do
->>>>>>> parent of b7fd487... Validación de usuario y correo
-=======
 ActiveRecord::Schema.define(version: 20170412002103) do
->>>>>>> parent of e3a45ff... Tabla usuarios, sin relaciones a otras tablas
 
   create_table "projects", force: :cascade do |t|
     t.string   "area"
@@ -32,7 +24,6 @@ ActiveRecord::Schema.define(version: 20170412002103) do
     t.text     "titulo"
     t.datetime "fecha_de_creacion"
     t.datetime "fecha_de_modificacion"
-    t.integer  "user_id"
   end
 
 end
