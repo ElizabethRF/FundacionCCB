@@ -1,6 +1,4 @@
-<h1>Agregar proyecto</h1>
-<%= form_for :project, url: projects_path do |f| %>
-
+<%= form_for :project do |f| %>
 <% if @project.errors.any? %>
     <div id="error_explanation">
         <h2>
@@ -58,5 +56,3 @@
     </p>
 
 <% end %>
- 
-<%= link_to 'Atras', projects_path %>

@@ -1,5 +1,5 @@
 <h1>Proyectos existentes</h1>
-
+<%= link_to 'Nuevo Proyecto', new_project_path %>
 <table>
     <tr>
         <th>Titulo</th>
@@ -15,7 +15,9 @@
         <td><%= project.descripcion%></td>
         <td><%= project.problematica%></td>
         <td><%= link_to 'Ver', project_path(project)%></td>
-        
+        <td><%= link_to 'Editar', edit_project_path(project) %></td>
+        <td><%= link_to 'Eliminar',project_path(project),method: :delete, data: {confirm: '¿Estás seguro de que deseas eliminar el proyecto? Esta acción no se puede deshacer'}%></td>
     </tr>
     <% end %>
 </table>
+
