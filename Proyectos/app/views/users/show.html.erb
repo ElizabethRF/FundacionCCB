@@ -12,6 +12,7 @@
         <th>Problemática</th>
     </tr>
     
+<%= will_paginate @user_articles %>
     <% @user.projects.each do |project|%>
     <tr>
         <td><%= project.titulo%></td>
@@ -24,4 +25,5 @@
         <td>Encargado: <%= project.user.nombre if project.user%></td>
     </tr>
     <% end %>
+
 </table>

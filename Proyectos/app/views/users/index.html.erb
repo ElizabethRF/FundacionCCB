@@ -1,0 +1,10 @@
+<h1>Todos los usuarios</h1>
+<%= will_paginate%>
+<% @users.each do |user|%>
+    <ul>
+        <li><%= link_to user.nombre_de_usuario, user_path(user)%></li>
+        <li><small><%=  pluralize(user.projects.count, "proyectos") if user.projects %></small></li>
+        
+    </ul>
+<%end%>
+<%= will_paginate%>

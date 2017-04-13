@@ -42,5 +42,12 @@
     <strong>Numero de personas que atienden </strong>
     <%= @project.atiende_num_personas %>
 </p>
+
+ <ul>
+     <li>creado por:</li> 
+     <li><%= link_to @project.user.nombre_de_usuario, user_path(@project.user) if @project.user%></li>
+        
+</ul>
+
 <%= link_to 'Editar', edit_project_path(@project)%>
 <%= link_to 'Atras', projects_path %>
