@@ -50,6 +50,10 @@
         <%= f.label :password%> 
         <%= f.password_field :password_digest %>
     </p>
+    <p>
+        <%= f.label :confirm_password%> 
+        <%= f.password_field :password_confirmation %>
+    </p>
 
     <p>
         <%= f.submit "Registrarse" %>
