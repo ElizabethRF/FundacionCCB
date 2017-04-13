@@ -1,0 +1,27 @@
+<h1>Bienvenido a la página de <%= @user.nombre %></h1>
+<h3>nombre de usuario: <%= @user.nombre_de_usuario %></h3>
+<h3>nombre: <%= @user.nombre %></h3>
+<h3>correo: <%= @user.correo %></h3>
+
+
+<table>
+    <tr>
+        <th>Titulo</th>
+        <th>Area</th>
+        <th>Descripción</th>
+        <th>Problemática</th>
+    </tr>
+    
+    <% @user.projects.each do |project|%>
+    <tr>
+        <td><%= project.titulo%></td>
+        <td><%= project.area%></td>
+        <td><%= project.descripcion%></td>
+        <td><%= project.problematica%></td>
+        <td><%= link_to 'Ver', project_path(project)%></td>
+        <td><%= link_to 'Editar', edit_project_path(project) %></td>
+        <td><%= link_to 'Eliminar',project_path(project),method: :delete, data: {confirm: '¿Estás seguro de que deseas eliminar el proyecto? Esta acción no se puede deshacer'}%></td>
+        <td>Encargado: <%= project.user.nombre if project.user%></td>
+    </tr>
+    <% end %>
+</table>
