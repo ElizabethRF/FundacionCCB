@@ -12,29 +12,29 @@
 
 ActiveRecord::Schema.define(version: 20170413001436) do
 
-  create_table "projects", force: :cascade do |t|
+  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "area"
-    t.decimal  "importe"
+    t.decimal  "importe",                             precision: 10
     t.datetime "periodo"
-    t.text     "descripcion"
-    t.text     "ubicacion"
+    t.text     "descripcion",           limit: 65535
+    t.text     "ubicacion",             limit: 65535
     t.integer  "voluntarios"
     t.string   "problematica"
     t.integer  "atiende_num_personas"
-    t.text     "titulo"
+    t.text     "titulo",                limit: 65535
     t.datetime "fecha_de_creacion"
     t.datetime "fecha_de_modificacion"
     t.integer  "user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "nombre"
     t.string "correo"
     t.string "numero_telefono"
     t.string "rol"
-    t.text   "apellido_paterno"
-    t.text   "apellido_materno"
-    t.text   "nombre_de_usuario"
+    t.text   "apellido_paterno",  limit: 65535
+    t.text   "apellido_materno",  limit: 65535
+    t.text   "nombre_de_usuario", limit: 65535
     t.string "password_digest"
   end
 
