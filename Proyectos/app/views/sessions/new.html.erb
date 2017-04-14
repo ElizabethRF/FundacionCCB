@@ -1,0 +1,18 @@
+<h1>LogIn</h1>
+
+<%= form_for :session, url: login_path do |f| %>
+    <p>
+        <%= f.label :correo %> 
+        <%= f.email_field :correo %>
+
+    </p>
+    <p>
+        <%= f.label :password%> 
+        <%= f.password_field :password_digest %>
+    </p>
+
+    <p>
+        <%= f.submit "Iniciar Sesión" %>
+    </p>
+
+<% end %>
