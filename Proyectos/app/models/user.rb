@@ -1,5 +1,5 @@
 class User <ActiveRecord::Base
-    has_secure_password
+    
     has_many :projects
     before_save {self.correo = correo.downcase}
     validates :nombre, presence: true
@@ -21,5 +21,5 @@ class User <ActiveRecord::Base
     validates :nombre_de_usuario, presence: true,
                 uniqueness: {case_sensitive: false}, 
                 length: {minimum:5, maximum: 25}
-    
+    has_secure_password
 end 
