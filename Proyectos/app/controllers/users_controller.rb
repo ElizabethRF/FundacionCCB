@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-   def index 
+   before_action :set_user, only:[:edit, :update,:show]
+    
+    def index 
        @users = User.paginate(page: params[:page], per_page: 15)
    end
 
@@ -8,7 +10,6 @@ class UsersController < ApplicationController
     end 
     
      def edit
-        @user = User.find(params[:id]) 
     end 
     
     
@@ -23,7 +24,6 @@ class UsersController < ApplicationController
     
    
     def update
-        @user = User.find(params[:id])
         if @user.update(user_params)
             redirect_to projects_path
         else
@@ -33,10 +33,12 @@ class UsersController < ApplicationController
     end 
     
     def show
-        @user = User.find(params[:id])
         @user_articles= @user.projects.paginate(page: params[:page])
     end 
     
+    def set_user
+         @user = User.find(params[:id])
+    end
     private 
     def user_params
          params.require(:user).permit(:nombre,:correo,:numero_telefono,:rol,:apellido_paterno,:apellido_materno,:nombre_de_usuario,:password)
