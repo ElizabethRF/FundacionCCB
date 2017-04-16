@@ -1,18 +1,16 @@
 class ProjectsController < ApplicationController
-  # before_action :set_project, only: [:edit,:update,:show,:destroy]
+   before_action :set_project, only: [:edit,:update,:show,:destroy]
     before_action :require_user
-   # before_action :require_same_user, only: [:edit, :update, :destroy]
+    before_action :require_same_user, only: [:edit, :show, :update, :destroy]
     
     def index 
         @projects = Project.paginate(page: params[:page], per_page: 15)
     end 
     
     def edit
-        @project = Project.find(params[:id]) 
     end 
     
     def show 
-        @project = Project.find(params[:id])
     end 
     
     def new
@@ -30,7 +28,6 @@ class ProjectsController < ApplicationController
     end 
     
     def update 
-        @project = Project.find(params[:id])
         if @project.update(project_params)
             redirect_to @project
         else 
@@ -39,18 +36,21 @@ class ProjectsController < ApplicationController
     end 
     
     def destroy 
-        @project = Project.find(params[:id])
         @project.destroy
         
         redirect_to projects_path
     end 
     
     def require_same_user 
-        @project = Project.find(params[:id])
-        if current_user != @project.user_id
+        set_project
+        if current_user != @project.user
             flash[:danger] = "Solo puedes editar tus artículos"
             redirect_to root_path
         end 
+    end 
+    
+    def set_project
+        @project = Project.find(params[:id])
     end 
     
     private 
