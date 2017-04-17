@@ -43,7 +43,7 @@ class ProjectsController < ApplicationController
     
     def require_same_user 
         set_project
-        if current_user != @project.user
+        if current_user != @project.user && !@current_user.admin?
             flash[:danger] = "Solo puedes editar tus artículos"
             redirect_to root_path
         end 

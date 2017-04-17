@@ -45,7 +45,7 @@
 
  <ul>
      <li>creado por:</li> 
-     <li><%= link_to @project.user.nombre_de_usuario, user_path(@project.user) if @project.user%></li>
+     <li><%= link_to @project.user.nombre_de_usuario, user_path(@project.user) if (@project.user) || current_user.admin?%></li>
         
 </ul>
 

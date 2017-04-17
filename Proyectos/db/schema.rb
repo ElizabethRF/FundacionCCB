@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413001436) do
+ActiveRecord::Schema.define(version: 20170417004813) do
+
+  create_table "encuesta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "etapa"
+  end
+
+  create_table "pregunta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "valor"
+    t.string  "area"
+  end
 
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "area"
@@ -27,15 +36,20 @@ ActiveRecord::Schema.define(version: 20170413001436) do
     t.integer  "user_id"
   end
 
+  create_table "respuesta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string  "respuesta"
+    t.integer "valor"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "nombre"
-    t.string "correo"
-    t.string "numero_telefono"
-    t.string "rol"
-    t.text   "apellido_paterno",  limit: 65535
-    t.text   "apellido_materno",  limit: 65535
-    t.text   "nombre_de_usuario", limit: 65535
-    t.string "password_digest"
+    t.string  "nombre"
+    t.string  "correo"
+    t.string  "numero_telefono"
+    t.text    "apellido_paterno",  limit: 65535
+    t.text    "apellido_materno",  limit: 65535
+    t.text    "nombre_de_usuario", limit: 65535
+    t.string  "password_digest"
+    t.boolean "admin",                           default: false
   end
 
 end
