@@ -12,44 +12,44 @@
 
 ActiveRecord::Schema.define(version: 20170417004813) do
 
-  create_table "encuesta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "encuesta", force: :cascade do |t|
     t.string "etapa"
   end
 
-  create_table "pregunta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "pregunta", force: :cascade do |t|
     t.integer "valor"
     t.string  "area"
   end
 
-  create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "projects", force: :cascade do |t|
     t.string   "area"
-    t.decimal  "importe",                             precision: 10
+    t.decimal  "importe"
     t.datetime "periodo"
-    t.text     "descripcion",           limit: 65535
-    t.text     "ubicacion",             limit: 65535
+    t.text     "descripcion"
+    t.text     "ubicacion"
     t.integer  "voluntarios"
     t.string   "problematica"
     t.integer  "atiende_num_personas"
-    t.text     "titulo",                limit: 65535
+    t.text     "titulo"
     t.datetime "fecha_de_creacion"
     t.datetime "fecha_de_modificacion"
     t.integer  "user_id"
   end
 
-  create_table "respuesta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "respuesta", force: :cascade do |t|
     t.string  "respuesta"
     t.integer "valor"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string  "nombre"
     t.string  "correo"
     t.string  "numero_telefono"
-    t.text    "apellido_paterno",  limit: 65535
-    t.text    "apellido_materno",  limit: 65535
-    t.text    "nombre_de_usuario", limit: 65535
+    t.text    "apellido_paterno"
+    t.text    "apellido_materno"
+    t.text    "nombre_de_usuario"
     t.string  "password_digest"
-    t.boolean "admin",                           default: false
+    t.boolean "admin",             default: false
   end
 
 end
