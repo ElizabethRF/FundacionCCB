@@ -12,6 +12,7 @@ Pregunta.create( [ {texto_pregunta: "Describa la o las problemáticas que se van
 Pregunta.create( [ {texto_pregunta: "Ingreso mensual de la población a la que se quiere llegar", valor: 1, area: "Todas"}] )
 Pregunta.create( [ {texto_pregunta: "¿A cuántas personas se estima que ayudarán al año?", valor: 1, area: "Todas"}] )
 Pregunta.create( [ {texto_pregunta: "¿Cuántas metas tiene el proyecto?", valor: 1, area: "Todas"}] )
+Pregunta.create( [ {texto_pregunta: "Enlista tus metas prioritarias (Al menos una debe ser cuantificable en un periodo de tiempo y con una cualidad", valor: 1, area: "Todas"}] )
 Pregunta.create( [ {texto_pregunta: "¿Cuántas actividades a realizar tiene?", valor: 1, area: "Todas"}] )
 Pregunta.create( [ {texto_pregunta: "¿Cuántas personas se necesita para participar en cada actividad?", valor: 1, area: "Todas"}] )
 Pregunta.create( [ {texto_pregunta: "¿Cuántos voluntarios internos?", valor: 1, area: "Todas"}] )
