@@ -8,6 +8,7 @@ class PreguntasController < ApplicationController
 	end
 
 	def new
+        @pregunta = Pregunta.new
 	end
 
 	def create
@@ -18,19 +19,23 @@ class PreguntasController < ApplicationController
 		    render 'new'
   		end
 	end
+     def edit
+         @pregunta = Pregunta.find(params[:id])
+    end 
 
-	private
-		def pregunta_params
-	    	params.require(:pregunta).permit(:texto_pregunta, :valor, :area)
-	  	end
-
-	def update
-	  @pregunta = pregunta.find(params[:id])
-	 
+    def update
+	  @pregunta = Pregunta.find(params[:id])
 	  if @pregunta.update(pregunta_params)
 	    redirect_to @pregunta
 	  else
 	    render 'edit'
 	  end
 	end
+    
+	private
+		def pregunta_params
+	    	params.require(:pregunta).permit(:texto_pregunta, :valor, :area)
+	  	end
+
+	
 end
