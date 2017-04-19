@@ -24,12 +24,6 @@ ActiveRecord::Schema.define(version: 20170419130414) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "preguntas2", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer "valor"
-    t.string  "area"
-    t.string  "pregunta"
-  end
-
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "area"
     t.decimal  "importe",                             precision: 10

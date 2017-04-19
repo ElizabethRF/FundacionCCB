@@ -8,7 +8,6 @@
 # ruby encoding: utf-8
 
 Pregunta.create( [ {texto_pregunta: "¿Qué tipo de servicio realizas?", valor: 1, area: "Todas"}] )
-
 Pregunta.create( [ {texto_pregunta: "Describa la o las problemáticas que se van a abordar", valor: 1, area: "Todas"}] )
 Pregunta.create( [ {texto_pregunta: "Ingreso mensual de la población a la que se quiere llegar", valor: 1, area: "Todas"}] )
 Pregunta.create( [ {texto_pregunta: "¿A cuántas personas se estima que ayudarán al año?", valor: 1, area: "Todas"}] )
