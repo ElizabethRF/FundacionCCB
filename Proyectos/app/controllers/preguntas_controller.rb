@@ -32,6 +32,14 @@ class PreguntasController < ApplicationController
 	  end
 	end
     
+    
+     def destroy
+        @pregunta = Pregunta.find(params[:id])
+        @pregunta.destroy
+        flash[:danger] = "Se ha borrado la pregunta"
+        redirect_to preguntas_path
+    end 
+    
 	private
 		def pregunta_params
 	    	params.require(:pregunta).permit(:texto_pregunta, :valor, :area)
