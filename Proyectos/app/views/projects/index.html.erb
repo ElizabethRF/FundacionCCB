@@ -5,11 +5,12 @@
     
 
         <% @projects.each do |project|%>
+          <%if (project.user == current_user) || current_user.admin? %>  
             <div class="row">
                 <div class="col-xs-8">
                     <div class="well well-lg">
                         <div class="article-title">
-                            <%if (project.user == current_user) || current_user.admin? %>
+                           
                             <%= link_to project.titulo, project_path(project)%>
                         </div>
                         <div class="article-body">
@@ -22,11 +23,11 @@
                                 <%= link_to 'Eliminar',project_path(project),method: :delete, data: {confirm: '¿Estás seguro de que deseas eliminar el proyecto? Esta acción no se puede deshacer'}, class: "btn btn-xs btn-danger"%>
                             </div>
                             <td>Encargado: <%= project.user.nombre if( project.user) || current_user.admin? %></td>
-                             <%end%>
+                             
                     </div>
                 </div>
-</div>
-            
+        </div>
+        <% end %>  
         <% end %>
     
 <%end %>
