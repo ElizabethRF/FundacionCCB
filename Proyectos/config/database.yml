@@ -12,7 +12,7 @@ default: &default
 development:
   <<: *default
   username: root
-  password: 
+  password:
   encodigng: utf8
   reconnect: false
   database: db/development

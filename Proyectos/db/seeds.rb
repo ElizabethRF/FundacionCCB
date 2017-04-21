@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # ruby encoding: utf-8
 
+
 Pregunta.create( [ {texto_pregunta: "¿Qué tipo de servicio realizas?", valor: 1, area: "Todas", etapa: "1"}] )
 Pregunta.create( [ {texto_pregunta: "Describa la o las problemáticas que se van a abordar", valor: 1, area: "Todas", etapa: "1"}] )
 Pregunta.create( [ {texto_pregunta: "Ingreso mensual de la población a la que se quiere llegar", valor: 1, area: "Todas", etapa: "1"}] )
@@ -36,3 +37,5 @@ Pregunta.create( [ {texto_pregunta: "¿Del 1 al 10 con cuánto éxito se realiza
 
 Pregunta.create( [ {texto_pregunta: "¿A cuántas personas se ha beneficiado con esta actividad?", valor: 1, area: "Todas", etapa: "2"}] )
 Pregunta.create( [ {texto_pregunta: "¿En el siguiente espacio pon un link de drive/dropbox donde se encuentren los documentos que respalden la información de igual forma compartelo con el email de CCB?", valor: 1, area: "Todas", etapa: "2"}] )
+
+
