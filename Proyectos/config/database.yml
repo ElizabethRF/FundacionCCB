@@ -11,9 +11,13 @@ default: &default
 
 development:
   <<: *default
+  username: root
+  password: 
   encodigng: utf8
   reconnect: false
   database: db/development
+
+# database: db/schema
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
