@@ -10,14 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20170419225707) do
 
-ActiveRecord::Schema.define(version: 20170419130414) do
-
-
-  create_table "encuesta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "encuestas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "etapa"
   end
-  
+
   create_table "preguntas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "texto_pregunta"
     t.integer  "valor"
@@ -42,17 +40,9 @@ ActiveRecord::Schema.define(version: 20170419130414) do
     t.integer  "user_id"
   end
 
-  create_table "respuesta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "respuestas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string  "respuesta"
     t.integer "valor"
-  end
-
-  create_table "respuestazos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "respuesta"
-    t.string   "valor"
-    t.datetime "fecha"
-    t.string   "num_pregunta"
-    t.string   "integer"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
