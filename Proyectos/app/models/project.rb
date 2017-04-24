@@ -1,5 +1,8 @@
 class Project < ActiveRecord::Base
    belongs_to :user
+    has_many :project_respuesta
+    has_many :respuestas, through: :project_respuesta
+    
     validates :titulo, presence: true, length: {minimum: 5 ,maximun:50 }
     validates :area, presence: true, length: {minimum: 5,maximun:50 }
     validates :importe, presence: true , length: {minimum: 1,maximun:9 }
