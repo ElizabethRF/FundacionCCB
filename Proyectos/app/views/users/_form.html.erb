@@ -119,18 +119,29 @@ label.light {
 
 </style>
 
+
+
 <% if @user.errors.any? %>
-    <div id="error_explanation">
-        <h2>
-        <%= pluralize(@user.errors.count,"errores")%><br>
-            Debes corregir los siguientes errores para registrarte: 
-        </h2>
-        <ul>
-            <% @user.errors.full_messages.each do |mensaje|%>
-                <li><%= mensaje %></li>
-            <% end %>
-        </ul>
-    </div>
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="panel panel-danger">
+                <div class="panel heading" id="rojo">
+                    <h2 class="panel-title">
+                        <%= pluralize(@user.errors.count, "errores") %>
+                        prohiben crear el usuario: 
+                    </h2>
+                    <div class="panel-body" id="rojo">
+                        <ul><% @user.errors.full_messages.each do |mensaje|%>
+                            <li><%= mensaje %></li>
+                            <% end %> 
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+        
+    
 <% end %>
 
 
