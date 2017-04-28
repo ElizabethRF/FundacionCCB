@@ -1,0 +1,12 @@
+<h1>Encuesta</h1>
+<%= form_for :answer, url: answers_path do |f| %>
+    <p>
+    <% @preguntas.each do |pregunta| %>
+    <tr>
+      <td><%= pregunta.texto_pregunta %></td>
+        <td><%= f.text_field :respuesta%></td><br>
+        
+    </tr>
+  <% end %>
+        <%= f.submit%>
+<%end%>
