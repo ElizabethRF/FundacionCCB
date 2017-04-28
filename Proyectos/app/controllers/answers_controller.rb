@@ -5,7 +5,8 @@ class AnswersController < ApplicationController
     end 
     
     def new 
-      @preguntas = Pregunta.all
+      @respuesta = Answer.new
+    @preguntas = Pregunta.all
   end 
     
     def create 
@@ -25,9 +26,19 @@ class AnswersController < ApplicationController
     end 
     
     def edit
-        
+        @preguntas = Pregunta.all
+        @respuesta = Answer.find(params[:id])
     end 
  
+    def update
+      @respuesta = Answer.find(params[:id])
+
+      if @respuesta.update(respuesta_params)
+        redirect_to @respuesta
+      else
+        render 'edit'
+      end
+    end
 
     
     private
