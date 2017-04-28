@@ -1,4 +1,4 @@
-class ProyectoRespuesta < ActiveRecord::Base
-    belongs_to: project
-    belongs_to: respuesta
+class ProjectRespuesta < ActiveRecord::Base
+    belongs_to :project
+    belongs_to :answer
 end 
