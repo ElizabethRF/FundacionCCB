@@ -6,12 +6,11 @@ class AnswersController < ApplicationController
     
     def new 
       @respuesta = Answer.new
-    @preguntas = Pregunta.all
+        @preguntas = Pregunta.all
   end 
     
     def create 
         @respuesta = Answer.new(respuesta_params)
-       
         @respuesta.pregunta_id = 16
         @respuesta.valor = 1
         if @respuesta.save

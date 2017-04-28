@@ -18,10 +18,12 @@
 <p>
 
     <tr>
-      <td><%= @preguntas.find(16).texto_pregunta %></td>
+      <td><%= @preguntas.find(request.path.split('.').last).texto_pregunta %></td>
         <td><%= f.text_field :respuesta%></td><br>
+    
         
     </tr>
 
-        <%= f.submit%>
+        <%= f.submit "Guardar pregunta"%>
 <%end%>
+    
