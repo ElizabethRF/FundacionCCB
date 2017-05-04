@@ -1,16 +1,16 @@
 class Project < ActiveRecord::Base
    belongs_to :user
-    has_many :project_respuesta
-    has_many :answers, through: :project_respuesta
+    has_many :answers_projects
+    has_many :answers, through: :answers_projects
     
-    validates :titulo, presence: true, length: {minimum: 5 ,maximun:50 }
+    validates :title, presence: true, length: {minimum: 5 ,maximun:50 }
     validates :area, presence: true, length: {minimum: 5,maximun:50 }
-    validates :importe, presence: true , length: {minimum: 1,maximun:9 }
-    validates :periodo, presence: true
-    validates :descripcion, presence: true , length: {minimum: 10}
-    validates :ubicacion, presence: true,  length: {minimum: 10,maximun:200 }
-    validates :voluntarios, presence: true , length: {minimum: 1,maximun:6}
-    validates :problematica, presence: true, length: {minimum: 5,maximun:50 }
-    validates :atiende_num_personas, presence: true,  length: {minimum: 1,maximun:6 }
+    validates :amount, presence: true , length: {minimum: 1,maximun:9 }
+    validates :starting, presence: true
+    validates :description, presence: true , length: {minimum: 10}
+    validates :location, presence: true,  length: {minimum: 10,maximun:200 }
+    validates :volunteers, presence: true , length: {minimum: 1,maximun:6}
+    validates :problem, presence: true, length: {minimum: 5,maximun:50 }
+    validates :serves_num_people, presence: true,  length: {minimum: 1,maximun:6 }
     validates :user_id, presence: true
 end

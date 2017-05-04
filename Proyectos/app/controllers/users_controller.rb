@@ -2,7 +2,7 @@ class UsersController < ApplicationController
    before_action :require_user, except: [:new, :create]
     before_action :set_user, only:[:edit, :update,:show, :destroy]
     before_action :require_same_user, only: [:edit, :update,:show]
-    before_action :require_admin, only: [:destroy]
+    before_action :require_admin, only: [:destroy, :index]
     
     def index 
        @users = User.paginate(page: params[:page], per_page: 15)
@@ -60,13 +60,13 @@ class UsersController < ApplicationController
     
     def require_admin
         if logged_in? and !current_user.admin? 
-            flash[:danger]= "Solo los administradores pueden borrar "
+            flash[:danger]= "Solo los administradores tienen acceso a eso "
             redirect_to root_path
          end 
     end 
     
     private 
     def user_params
-        params.require(:user).permit(:nombre,:correo,:numero_telefono,:apellido_paterno,:apellido_materno,:nombre_de_usuario,:password)
+        params.require(:user).permit(:name,:mail,:telephone_number,:last_name,:second_last_name,:username,:password)
     end
 end

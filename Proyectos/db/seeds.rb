@@ -7,32 +7,32 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # ruby encoding: utf-8
 
-Pregunta.create( [ {texto_pregunta: "¿Qué tipo de servicio realizas?", valor: 1, area: "Todas", etapa: "1"}] )
-Pregunta.create( [ {texto_pregunta: "Describa la o las problemáticas que se van a abordar", valor: 1, area: "Todas", etapa: "1"}] )
-Pregunta.create( [ {texto_pregunta: "Ingreso mensual de la población a la que se quiere llegar", valor: 1, area: "Todas", etapa: "1"}] )
-Pregunta.create( [ {texto_pregunta: "¿A cuántas personas se estima que ayudarán al año?", valor: 1, area: "Todas", etapa: "1"}] )
-Pregunta.create( [ {texto_pregunta: "¿Cuántas metas tiene el proyecto?", valor: 1, area: "Todas"}] )
-Pregunta.create( [ {texto_pregunta: "¿Cuántas actividades a realizar tiene?", valor: 1, area: "Todas", etapa: "1"}] )
-Pregunta.create( [ {texto_pregunta: "¿Cuántas personas se necesita para participar en cada actividad?", valor: 1, area: "Todas", etapa: "1"}] )
-Pregunta.create( [ {texto_pregunta: "¿Cuántos voluntarios internos?", valor: 1, area: "Todas", etapa: "1"}] )
-Pregunta.create( [ {texto_pregunta: "¿Cuántos voluntarios externos?", valor: 1, area: "Todas", etapa: "1"}] )
+Question.create( [ {question: "¿Qué tipo de servicio realizas?", value: 1, area: "Todas", phase: "1"}] )
+Question.create( [ {question: "Describa la o las problemáticas que se van a abordar", value: 1, area: "Todas", phase: "1"}] )
+Question.create( [ {question: "Ingreso mensual de la población a la que se quiere llegar", value: 1, area: "Todas", phase: "1"}] )
+Question.create( [ {question: "¿A cuántas personas se estima que ayudarán al año?", value: 1, area: "Todas", phase: "1"}] )
+Question.create( [ {question: "¿Cuántas metas tiene el proyecto?", value: 1, area: "Todas"}] )
+Question.create( [ {question: "¿Cuántas actividades a realizar tiene?", value: 1, area: "Todas", phase: "1"}] )
+Question.create( [ {question: "¿Cuántas personas se necesita para participar en cada actividad?", value: 1, area: "Todas", phase: "1"}] )
+Question.create( [ {question: "¿Cuántos voluntarios internos?", value: 1, area: "Todas", phase: "1"}] )
+Question.create( [ {question: "¿Cuántos voluntarios externos?", value: 1, area: "Todas", phase: "1"}] )
 
-Pregunta.create( [ {texto_pregunta: "¿Existe o ha existido una problemática que ha interferido en el desarrollo del proyecto?", valor: 1, area: "Todas", etapa: "2"}] )
+Question.create( [ {question: "¿Existe o ha existido una problemática que ha interferido en el desarrollo del proyecto?", value: 1, area: "Todas", phase: "2"}] )
 
-Pregunta.create( [ {texto_pregunta: "¿Los beneficiarios colaboran en el proyecto?", valor: 1, area: "Todas", etapa: "2"}] )
+Question.create( [ {question: "¿Los beneficiarios colaboran en el proyecto?", value: 1, area: "Todas", phase: "2"}] )
 
-Pregunta.create( [ {texto_pregunta: "¿Realizas algún tipo de evaluación del proyecto?", valor: 1, area: "Todas", etapa: "2"}] )
+Question.create( [ {question: "¿Realizas algún tipo de evaluación del proyecto?", value: 1, area: "Todas", phase: "2"}] )
 
-Pregunta.create( [ {texto_pregunta: "¿Ha habido cambios de enfoque en la problemática que se quiere desarrollar?", valor: 1, area: "Todas", etapa: "2"}] )
+Question.create( [ {question: "¿Ha habido cambios de enfoque en la problemática que se quiere desarrollar?", value: 1, area: "Todas", phase: "2"}] )
 
-Pregunta.create( [ {texto_pregunta: "¿Cuáles considera que son las áreas de oportunidad del proyecto?", valor: 1, area: "Todas", etapa: "2"}] )
+Question.create( [ {question: "¿Cuáles considera que son las áreas de oportunidad del proyecto?", value: 1, area: "Todas", phase: "2"}] )
 
-Pregunta.create( [ {texto_pregunta: "¿A cuántas personas se ha ayudado en la implementación del proyecto?", valor: 1, area: "Todas", etapa: "2"}] )
-Pregunta.create( [ {texto_pregunta: "¿Cuántas metas se han cumplido?", valor: 1, area: "Todas", etapa: "2"}] )
+Question.create( [ {question: "¿A cuántas personas se ha ayudado en la implementación del proyecto?", value: 1, area: "Todas", phase: "2"}] )
+Question.create( [ {question: "¿Cuántas metas se han cumplido?", value: 1, area: "Todas", phase: "2"}] )
 
-Pregunta.create( [ {texto_pregunta: "¿Hubo cambios en las actividades?", valor: 1, area: "Todas", etapa: "2"}] )
+Question.create( [ {question: "¿Hubo cambios en las actividades?", value: 1, area: "Todas", phase: "2"}] )
 
-Pregunta.create( [ {texto_pregunta: "¿Del 1 al 10 con cuánto éxito se realizaron las activdades?", valor: 1, area: "Todas", etapa: "2"}] )
+Question.create( [ {question: "¿Del 1 al 10 con cuánto éxito se realizaron las activdades?", value: 1, area: "Todas", phase: "2"}] )
 
-Pregunta.create( [ {texto_pregunta: "¿A cuántas personas se ha beneficiado con esta actividad?", valor: 1, area: "Todas", etapa: "2"}] )
-Pregunta.create( [ {texto_pregunta: "¿En el siguiente espacio pon un link de drive/dropbox donde se encuentren los documentos que respalden la información de igual forma compartelo con el email de CCB?", valor: 1, area: "Todas", etapa: "2"}] )
+Question.create( [ {question: "¿A cuántas personas se ha beneficiado con esta actividad?", value: 1, area: "Todas", phase: "2"}] )
+Question.create( [ {question: "¿En el siguiente espacio pon un link de drive/dropbox donde se encuentren los documentos que respalden la información de igual forma compartelo con el email de CCB?", value: 1, area: "Todas", phase: "2"}] )

@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
    before_action :set_project, only: [:edit,:update,:show,:destroy]
     before_action :require_user
     before_action :require_same_user, only: [:edit, :show, :update, :destroy]
+    before_action :require_admin, only: [:edit,:update,:destroy]
     
     def index 
         @projects = Project.paginate(page: params[:page], per_page: 15)
@@ -53,9 +54,17 @@ class ProjectsController < ApplicationController
         @project = Project.find(params[:id])
     end 
     
+    
+    def require_admin
+        if logged_in? and !current_user.admin? 
+            flash[:danger]= "Solo los administradores pueden hacer eso "
+            redirect_to root_path
+         end 
+    end 
+    
     private 
     def project_params
-        params.require(:project).permit(:area, :importe, :periodo, :descripcion , :ubicacion, :voluntarios, :problematica ,:atiende_num_personas, :titulo)
+        params.require(:project).permit(:area, :amount, :starting,  :ending, :description , :location, :volunteers, :problem ,:serves_num_people, :title)
     end
     
 end

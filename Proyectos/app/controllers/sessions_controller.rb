@@ -4,7 +4,7 @@ class SessionsController <ApplicationController
     end 
     
     def create 
-      user = User.find_by(correo: params[:session][:correo].downcase)    
+      user = User.find_by(mail: params[:session][:mail].downcase)    
         if user && user.authenticate(params[:session][:password])
             session[:user_id] = user.id
             flash[:success] = "Bienvenido"

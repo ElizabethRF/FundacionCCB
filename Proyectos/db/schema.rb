@@ -10,62 +10,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428143100) do
+ActiveRecord::Schema.define(version: 20170503124639) do
 
   create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text    "respuesta",   limit: 65535
-    t.integer "valor"
-    t.integer "pregunta_id"
+    t.text    "answer",      limit: 65535
+    t.integer "value"
+    t.integer "question_id"
+    t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 
-  create_table "preguntas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "texto_pregunta"
-    t.integer  "valor"
-    t.string   "area"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.text     "etapa",          limit: 65535
-  end
-
-  create_table "project_respuesta", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "respuesta_id"
-    t.integer  "project_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+  create_table "answers_projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "project_id", null: false
+    t.integer  "answer_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["answer_id"], name: "index_answers_projects_on_answer_id", using: :btree
+    t.index ["project_id"], name: "index_answers_projects_on_project_id", using: :btree
   end
 
   create_table "projects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "area"
-    t.decimal  "importe",                             precision: 10
-    t.datetime "periodo"
-    t.text     "descripcion",           limit: 65535
-    t.text     "ubicacion",             limit: 65535
-    t.integer  "voluntarios"
-    t.string   "problematica"
-    t.integer  "atiende_num_personas"
-    t.text     "titulo",                limit: 65535
-    t.datetime "fecha_de_creacion"
-    t.datetime "fecha_de_modificacion"
+    t.decimal  "amount",                          precision: 10
+    t.datetime "starting"
+    t.datetime "ending"
+    t.text     "description",       limit: 65535
+    t.text     "location",          limit: 65535
+    t.integer  "volunteers"
+    t.string   "problem"
+    t.integer  "serves_num_people"
+    t.text     "title",             limit: 65535
     t.integer  "user_id"
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
-  create_table "respuestas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text    "respuesta",   limit: 65535
-    t.integer "valor"
-    t.integer "pregunta_id"
-    t.index ["pregunta_id"], name: "fk_rails_bdea2c1365", using: :btree
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "question"
+    t.integer  "value"
+    t.string   "area"
+    t.text     "phase",      limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string  "nombre"
-    t.string  "correo"
-    t.string  "numero_telefono"
-    t.text    "apellido_paterno",  limit: 65535
-    t.text    "apellido_materno",  limit: 65535
-    t.text    "nombre_de_usuario", limit: 65535
-    t.string  "password_digest"
-    t.boolean "admin",                           default: false
+    t.string   "name"
+    t.string   "mail"
+    t.string   "telephone_number"
+    t.string   "last_name"
+    t.string   "second_last_name"
+    t.string   "username"
+    t.string   "password_digest"
+    t.boolean  "admin"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_foreign_key "respuestas", "preguntas"
+  add_foreign_key "answers", "questions"
+  add_foreign_key "projects", "users"
 end

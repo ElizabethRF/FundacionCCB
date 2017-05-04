@@ -1,19 +1,31 @@
 class AnswersController < ApplicationController
+   before_action :require_user
+   before_action :get_current_project
+    @@id = 3
     def show 
         @respuesta = Answer.find(params[:id])
-        @pregunta = Pregunta.find(16)
+        @pregunta = Question.find(@respuesta.question_id)
     end 
     
     def new 
       @respuesta = Answer.new
-        @preguntas = Pregunta.all
+        @preguntas = Question.all
+        @@id = request.original_url.split('.').last
+        
   end 
     
     def create 
+        @preguntas = Question.all
         @respuesta = Answer.new(respuesta_params)
-        @respuesta.pregunta_id = 16
-        @respuesta.valor = 1
+        @respuesta.question_id = @@id
+        @respuesta.value = 1
         if @respuesta.save
+            @respuesta_proyecto = AnswersProject.new
+            @respuesta_proyecto.project_id = get_current_project
+            @respuesta_proyecto.answer_id = @respuesta.id
+            @respuesta_proyecto.created_at = Time.now
+            @respuesta_proyecto.updated_at = Time.now
+            @respuesta_proyecto.save
             redirect_to @respuesta
         else render 'new'
         end
@@ -21,11 +33,12 @@ class AnswersController < ApplicationController
 
     def index
         @respuestas = Answer.all
-        @pregunta = Pregunta.all
+        @pregunta = Question.all
+        @proyectos = Project.all
     end 
     
     def edit
-        @preguntas = Pregunta.all
+        @preguntas = Question.all
         @respuesta = Answer.find(params[:id])
     end 
  
@@ -42,6 +55,6 @@ class AnswersController < ApplicationController
     
     private
     def respuesta_params
-        params.require(:answer).permit(:respuesta)
+        params.require(:answer).permit(:answer)
     end 
 end

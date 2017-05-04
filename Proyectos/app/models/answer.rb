@@ -1,7 +1,7 @@
 class Answer < ActiveRecord::Base
-   belongs_to :pregunta
-    has_many :project_respuesta
-    has_many :projects, through: :project_respuesta
+  belongs_to :question
+    has_many :answers_projects
+    has_many :projects, through: :answers_projects
     
-    validates :respuesta, presence: true, length: {minimum: 1}
-end 
+    validates :answer, presence: true, length: {minimum: 1}
+end
